@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: spring-boot-backbone
+  data:
+    mongodb:
+      port: 0
+    rest:
+      base-path: /api

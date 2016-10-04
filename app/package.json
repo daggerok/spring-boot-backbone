@@ -1,0 +1,74 @@
+{
+  "name": "spring-boot-backbone",
+  "version": "0.0.1",
+  "main": "src/app.js",
+  "private": true,
+  "scripts": {
+    "prebuild": "npm-run-all -p clean:*",
+    "clean:src/vendor": "rimraf -rf ../src/main/resources/static",
+    "clean:static/vendor": "rimraf -rf ../src/main/resources/static",
+    "postinstall": "bower install jquery bootstrap lodash curl backbone",
+    "watch": "webpack -w --config=./config/webpack.dev.babel.js -c --process",
+    "start": "webpack-dev-server -d --config=./config/webpack.dev.babel.js --content-base=./src",
+    "build": "NODE_ENV=production webpack --config=./config/webpack.prod.babel.js -c --process -p"
+  },
+  "config": {
+    "bower_directory": "src/vendor"
+  },
+  "dependencies": {
+    "backbone": "^1.3.3",
+    "bootstrap": "^3.3.7",
+    "curl": "^0.1.4",
+    "jquery": "^3.1.1",
+    "lodash": "^4.16.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.0",
+    "babel-cli": "^6.16.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-class-properties": "^6.16.0",
+    "babel-preset-es2015": "*",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-register": "^6.16.3",
+    "bower": "^1.7.9",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.25.0",
+    "cssnano": "^3.7.6",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
+    "npm-run-all": "^3.1.0",
+    "opn-cli": "^3.1.0",
+    "postcss-loader": "^0.13.0",
+    "rimraf": "^2.5.4",
+    "source-map-loader": "^0.1.5",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.3.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "babel": {
+    "presets": [
+      "stage-0",
+      "es2015"
+    ],
+    "plugins": [
+      "add-module-exports",
+      "transform-class-properties"
+    ]
+  },
+  "keywords": [
+    "spring-boot",
+    "backbone"
+  ],
+  "author": "daggerok",
+  "description": "spring-boot-backbone",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://githuib.com/daggerok/spring-boot-backbone"
+  }
+}
