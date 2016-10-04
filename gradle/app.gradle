@@ -1,17 +1,13 @@
 task 'npm install'(type: Exec) {
-    workingDir './app'
-    executable 'bash'
-    args '-c', 'npm install'
+  workingDir './app'
+  executable 'bash'
+  args '-c', 'npm install'
 }
 
-task 'npm run build'(type: Exec, dependsOn: ['npm install']) {
+['npm run build', 'npm start'].each { npmCommand ->
+  tasks.create(name: npmCommand, type: Exec, dependsOn: ['npm install']) {
     workingDir './app'
     executable 'bash'
-    args '-c', 'npm run build'
-}
-
-task 'npm start'(type: Exec, dependsOn: ['npm install']) {
-    workingDir './app'
-    executable 'bash'
-    args '-c', 'npm run build'
+    args '-c', npmCommand
+  }
 }
