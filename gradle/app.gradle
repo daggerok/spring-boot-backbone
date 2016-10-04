@@ -5,7 +5,7 @@ task 'npm install'(type: Exec) {
 }
 
 ['npm run build', 'npm start'].each { npmCommand ->
-  tasks.create(name: npmCommand, type: Exec, dependsOn: ['npm install']) {
+  tasks.create(name: npmCommand, type: Exec, dependsOn: 'npm install') {
     workingDir './app'
     executable 'bash'
     args '-c', npmCommand

@@ -6,3 +6,10 @@ import './app.styl';
 // import curl from 'curl';
 // import Backbone from 'backbone';
 
+const
+  id = 'TODO',
+  username = 'TODO';
+
+$('#app').html(`
+<p>The ID is ${id}</p>
+<p>The content is ${username}</p>`);
