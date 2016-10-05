@@ -8,7 +8,7 @@ import './app.styl';
 
 const
   id = '-1',
-  username = `stopped. will not implement any backbone, because of poor framework these days...`;
+  username = `I will not implement any backbone, because of useless, but project is demonstrates nice gradle dynamic task creation approach (see gradle/app.gradle file)`;
 
 $('#app').html(`
 <p>The ID is ${id}</p>
