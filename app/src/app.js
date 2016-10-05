@@ -7,8 +7,8 @@ import './app.styl';
 // import Backbone from 'backbone';
 
 const
-  id = 'TODO',
-  username = 'TODO';
+  id = '-1',
+  username = `stopped. will not implement any backbone, because of poor framework these days...`;
 
 $('#app').html(`
 <p>The ID is ${id}</p>
