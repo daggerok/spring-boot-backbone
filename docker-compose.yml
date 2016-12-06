@@ -1,0 +1,23 @@
+#https://github.com/mongo-express/mongo-express-docker
+spring-boot-backbone-mongo-express:
+  container_name: spring-boot-backbone-mongo-express
+  hostname: spring-boot-backbone-mongo-express
+  image: mongo-express:0.32.0
+  ports:
+    - "8081:8081"
+  links:
+    - spring-boot-backbone-mongo
+  environment:
+    ME_CONFIG_MONGODB_SERVER: spring-boot-backbone-mongo
+    ME_CONFIG_OPTIONS_EDITORTHEME: ambiance
+    ME_CONFIG_SITE_BASEURL: /
+
+spring-boot-backbone-mongo:
+  container_name: spring-boot-backbone-mongo
+  hostname: spring-boot-backbone-mongo
+  image: mongo:3.0.14
+  environment:
+    MONGO_PORT_27017_TCP_ADDR: spring-boot-backbone-mongo
+    MONGO_PORT_27017_TCP_PORT: 27017
+  ports:
+    - "27017:27017"
