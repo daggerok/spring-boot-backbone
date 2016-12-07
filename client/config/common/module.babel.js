@@ -10,11 +10,19 @@ const include = resolvePath('./app');
 export const extractCSS = new ExtractPlugin('[name].css', { allChunks: true });
 
 export default {
-  preLoaders: [{
-    include,
-    test: /\.js$/i,
-    loader: 'source-map',
-  }],
+  preLoaders: [
+    {
+      include,
+      exclude,
+      test: /\.js$/i,
+      loader: 'eslint',
+    },
+    {
+      include,
+      test: /\.js$/i,
+      loader: 'source-map',
+    },
+  ],
   loaders: [
     {
       include,

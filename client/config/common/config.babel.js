@@ -4,6 +4,7 @@ import module  from './module.babel';
 import resolve from './resolve.babel';
 import plugins from './plugins.babel';
 import postcss from './postcss.babel';
+import eslint  from './eslint.babel';
 import node    from './node.babel';
 
 export default {
@@ -13,7 +14,8 @@ export default {
   resolve,
   plugins,
   postcss,
-  node,
+  devtool: 'source-map',
   debug: true,
-  devtool: '#source-map',
+  eslint,
+  node,
 };

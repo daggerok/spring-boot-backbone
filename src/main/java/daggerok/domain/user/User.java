@@ -7,6 +7,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -21,5 +22,5 @@ public class User implements Serializable {
     private static final long serialVersionUID = -7306469188282677840L;
 
     @Id String id;
-    @NonNull String username;
+    @NonNull @Indexed String username;
 }

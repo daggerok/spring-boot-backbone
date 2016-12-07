@@ -1,5 +1,11 @@
 import { publicPath } from './output.babel';
 
+const proxy = () => ({
+  target: 'http://localhost:8080',
+  changeOrign: false,
+  secure: false,
+});
+
 const devServer = {
   port: 8000,
   inline: true,
@@ -7,15 +13,13 @@ const devServer = {
   stats: 'minimal',
 
   historyApiFallback: {
-    index: publicPath
+    index: publicPath,
   },
 
   proxy: {
-    "/api": {
-      target: "http://localhost:8080",
-      secure: false
-    }
-  }
+    '/api': proxy(),
+    '/admin': proxy(),
+  },
 };
 
 export default devServer;
