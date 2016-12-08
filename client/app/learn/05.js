@@ -9,13 +9,10 @@ const Users = Backbone.Collection.extend({
 });
 const users = new Users();
 const user1 = users.add({ username: '1' });
-// const user2 = users.create({ username: '2' });
+const user2 = users.create({ username: '2' });
 
-const App = Backbone.View.extend({ el: '#app', });
-const app = new App();
+const ul = $('div#app').html('<ul></ul>');
 
-console.log(app.el);
-const ul = $(app.el).html('<ul/>');
 users.fetch().then(resp => {
   ul.html(resp._embedded.users.map(user => {
     const { id, username } = user;
